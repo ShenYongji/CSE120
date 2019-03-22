@@ -1,0 +1,1987 @@
+************************* TESTING cs120wfj *************************
+
+> *************** Test 1 ***************
+>
+>	- Basic test of 2 threads that print squares
+
+----------EXPECTED----------
+
+T1: 0 squared = 0
+T0: square = 0
+T1: 1 squared = 1
+T0: square = 1
+T1: 2 squared = 4
+T0: square = 4
+T1: 3 squared = 9
+T0: square = 9
+T1: 4 squared = 16
+T0: square = 16
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+T1: 0 squared = 0
+T0: square = 0
+T1: 1 squared = 1
+T0: square = 1
+T1: 2 squared = 4
+T0: square = 4
+T1: 3 squared = 9
+T0: square = 9
+T1: 4 squared = 16
+T0: square = 16
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 2 ***************
+>
+>	- Test of 3 threads that print squares and cubes
+
+----------EXPECTED----------
+
+T2: 0 cubed = 0
+T1: 0 squared = 0
+T0: square = 0, cube = 0
+T2: 1 cubed = 1
+T1: 1 squared = 1
+T0: square = 1, cube = 1
+T2: 2 cubed = 8
+T1: 2 squared = 4
+T0: square = 4, cube = 8
+T2: 3 cubed = 27
+T1: 3 squared = 9
+T0: square = 9, cube = 27
+T2: 4 cubed = 64
+T1: 4 squared = 16
+T0: square = 16, cube = 64
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+T2: 0 cubed = 0
+T1: 0 squared = 0
+T0: square = 0, cube = 0
+T2: 1 cubed = 1
+T1: 1 squared = 1
+T0: square = 1, cube = 1
+T2: 2 cubed = 8
+T1: 2 squared = 4
+T0: square = 4, cube = 8
+T2: 3 cubed = 27
+T1: 3 squared = 9
+T0: square = 9, cube = 27
+T2: 4 cubed = 64
+T1: 4 squared = 16
+T0: square = 16, cube = 64
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 3 ***************
+>
+>	- Basic test of yielding between 5 threads
+>
+>	- 1. Main function creates threads 1, 2, 3, 4, 5, then exits.
+>	- 2. 5 threads, each yields to the next one, and last yields to first.
+>	- 3. Invalid yielding testing: -1 should be returned when a thread
+>	-    yields to a thread with an invalid ID.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 1 entered doFirst with passed parameter 0.
+Thread 1 is about to yield to Thread 2.
+Thread 2 entered doFirst with passed parameter 1.
+Thread 2 is about to yield to Thread 3.
+Thread 3 entered doFirst with passed parameter 2.
+Thread 3 is about to yield to Thread 4.
+Thread 4 entered doFirst with passed parameter 3.
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst with passed parameter 4.
+Thread 5 is about to yield to Thread 1.
+Thread 1 is resumed by an exiting thread.
+Thread 1 is about to yield to invalid thread ID.
+Yield to id = 0, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 1 is about to exit.
+Thread 2 is resumed by an exiting thread.
+Thread 2 is about to yield to invalid thread ID.
+Yield to id = 1, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 2 is about to exit.
+Thread 3 is resumed by an exiting thread.
+Thread 3 is about to yield to invalid thread ID.
+Yield to id = 2, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 3 is about to exit.
+Thread 4 is resumed by an exiting thread.
+Thread 4 is about to yield to invalid thread ID.
+Yield to id = 3, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 4 is about to exit.
+Thread 5 is resumed by an exiting thread.
+Thread 5 is about to yield to invalid thread ID.
+Yield to id = 4, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 5 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 1 entered doFirst with passed parameter 0.
+Thread 1 is about to yield to Thread 2.
+Thread 2 entered doFirst with passed parameter 1.
+Thread 2 is about to yield to Thread 3.
+Thread 3 entered doFirst with passed parameter 2.
+Thread 3 is about to yield to Thread 4.
+Thread 4 entered doFirst with passed parameter 3.
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst with passed parameter 4.
+Thread 5 is about to yield to Thread 1.
+Thread 1 is resumed by an exiting thread.
+Thread 1 is about to yield to invalid thread ID.
+Yield to id = 0, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 1 is about to exit.
+Thread 5 is resumed by an exiting thread.
+Thread 5 is about to yield to invalid thread ID.
+Thread 4 is resumed by Thread 5.
+Thread 4 is about to yield to invalid thread ID.
+Thread 3 is resumed by Thread 4.
+Thread 3 is about to yield to invalid thread ID.
+Thread 2 is resumed by Thread 3.
+Thread 2 is about to yield to invalid thread ID.
+Yield to id = 1, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 2 is about to exit.
+Yield to id = 4, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 5 is about to exit.
+Yield to id = 3, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 4 is about to exit.
+Yield to id = 2, should return -1: succeed.
+Yield to id = 6, should return -1: succeed.
+Thread 3 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+--- test3.out	Mon Mar 12 05:09:54 2018
++++ Detailed/cs120wfj/test3	Mon Mar 11 01:42:13 2019
+@@ -19,25 +19,25 @@
+ Yield to id = 0, should return -1: succeed.
+ Yield to id = 6, should return -1: succeed.
+ Thread 1 is about to exit.
+-Thread 2 is resumed by an exiting thread.
++Thread 5 is resumed by an exiting thread.
++Thread 5 is about to yield to invalid thread ID.
++Thread 4 is resumed by Thread 5.
++Thread 4 is about to yield to invalid thread ID.
++Thread 3 is resumed by Thread 4.
++Thread 3 is about to yield to invalid thread ID.
++Thread 2 is resumed by Thread 3.
+ Thread 2 is about to yield to invalid thread ID.
+ Yield to id = 1, should return -1: succeed.
+ Yield to id = 6, should return -1: succeed.
+ Thread 2 is about to exit.
+-Thread 3 is resumed by an exiting thread.
+-Thread 3 is about to yield to invalid thread ID.
+-Yield to id = 2, should return -1: succeed.
++Yield to id = 4, should return -1: succeed.
+ Yield to id = 6, should return -1: succeed.
+-Thread 3 is about to exit.
+-Thread 4 is resumed by an exiting thread.
+-Thread 4 is about to yield to invalid thread ID.
++Thread 5 is about to exit.
+ Yield to id = 3, should return -1: succeed.
+ Yield to id = 6, should return -1: succeed.
+ Thread 4 is about to exit.
+-Thread 5 is resumed by an exiting thread.
+-Thread 5 is about to yield to invalid thread ID.
+-Yield to id = 4, should return -1: succeed.
++Yield to id = 2, should return -1: succeed.
+ Yield to id = 6, should return -1: succeed.
+-Thread 5 is about to exit.
++Thread 3 is about to exit.
+ 
+ System exiting (normal)
+----------------------------
+
+.............................. Test FAILED
+
+> *************** Test 4 ***************
+>
+>	- Queue test, 6 threads yielding.
+>
+>	- 1. Main function creates threads 1, 2, 3, 4, 5.
+>	- 2. Main thread yields to each of them in the reverse order of ID. 
+>	- 3. Threads exit one by one.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 is about to yield to itself: 5 is returned, succeed.
+Thread 5 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 5.
+Thread 0 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 is about to yield to itself: 4 is returned, succeed.
+Thread 4 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 4.
+Thread 0 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 is about to yield to itself: 3 is returned, succeed.
+Thread 3 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 3.
+Thread 0 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 is about to yield to itself: 2 is returned, succeed.
+Thread 2 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 2.
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 is about to yield to itself: 1 is returned, succeed.
+Thread 1 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 1.
+Thread 0 is about to exit.
+Thread 5 is resumed by an exiting thread.
+Thread 5 is about to exit.
+Thread 4 is resumed by an exiting thread.
+Thread 4 is about to exit.
+Thread 3 is resumed by an exiting thread.
+Thread 3 is about to exit.
+Thread 2 is resumed by an exiting thread.
+Thread 2 is about to exit.
+Thread 1 is resumed by an exiting thread.
+Thread 1 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 is about to yield to itself: 5 is returned, succeed.
+Thread 5 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 5.
+Thread 0 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 is about to yield to itself: 4 is returned, succeed.
+Thread 4 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 4.
+Thread 0 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 is about to yield to itself: 3 is returned, succeed.
+Thread 3 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 3.
+Thread 0 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 is about to yield to itself: 2 is returned, succeed.
+Thread 2 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 2.
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 is about to yield to itself: 1 is returned, succeed.
+Thread 1 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 1.
+Thread 0 is about to exit.
+Thread 5 is resumed by an exiting thread.
+Thread 5 is about to exit.
+Thread 4 is resumed by an exiting thread.
+Thread 4 is about to exit.
+Thread 3 is resumed by an exiting thread.
+Thread 3 is about to exit.
+Thread 2 is resumed by an exiting thread.
+Thread 2 is about to exit.
+Thread 1 is resumed by an exiting thread.
+Thread 1 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 5 ***************
+>
+>	- Queue test, 10 threads yielding back and forth.
+>
+>	- 1. Main function creates 9 threads.                       	-
+>	- 2. 10 threads yield back and forth. The yielding order is:
+>	-    0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 9 -> 
+>	-    8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 2 -> 1 -> 0
+>	- 3. Threads exit one by one.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doFirst.
+Thread 1 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 is about to yield to Thread 6.
+Thread 6 entered doFirst.
+Thread 6 is about to yield to Thread 7.
+Thread 7 entered doFirst.
+Thread 7 is about to yield to Thread 8.
+Thread 8 entered doFirst.
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 is about to yield to Thread 9.
+Thread 9 is resumed by Thread 9.
+Thread 9 is about to yield to Thread 8.
+Thread 8 is resumed by Thread 9.
+Thread 8 is about to yield to Thread 7.
+Thread 7 is resumed by Thread 8.
+Thread 7 is about to yield to Thread 6.
+Thread 6 is resumed by Thread 7.
+Thread 6 is about to yield to Thread 5.
+Thread 5 is resumed by Thread 6.
+Thread 5 is about to yield to Thread 4.
+Thread 4 is resumed by Thread 5.
+Thread 4 is about to yield to Thread 3.
+Thread 3 is resumed by Thread 4.
+Thread 3 is about to yield to Thread 2.
+Thread 2 is resumed by Thread 3.
+Thread 2 is about to yield to Thread 1.
+Thread 1 is resumed by Thread 2.
+Thread 1 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 1.
+Thread 0 is about to exit.
+Thread 9 is resumed by an exiting thread.
+Thread 9 is about to exit.
+Thread 8 is resumed by an exiting thread.
+Thread 8 is about to exit.
+Thread 7 is resumed by an exiting thread.
+Thread 7 is about to exit.
+Thread 6 is resumed by an exiting thread.
+Thread 6 is about to exit.
+Thread 5 is resumed by an exiting thread.
+Thread 5 is about to exit.
+Thread 4 is resumed by an exiting thread.
+Thread 4 is about to exit.
+Thread 3 is resumed by an exiting thread.
+Thread 3 is about to exit.
+Thread 2 is resumed by an exiting thread.
+Thread 2 is about to exit.
+Thread 1 is resumed by an exiting thread.
+Thread 1 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doFirst.
+Thread 1 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 is about to yield to Thread 6.
+Thread 6 entered doFirst.
+Thread 6 is about to yield to Thread 7.
+Thread 7 entered doFirst.
+Thread 7 is about to yield to Thread 8.
+Thread 8 entered doFirst.
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 is about to yield to Thread 9.
+Thread 9 is resumed by Thread 9.
+Thread 9 is about to yield to Thread 8.
+Thread 8 is resumed by Thread 9.
+Thread 8 is about to yield to Thread 7.
+Thread 7 is resumed by Thread 8.
+Thread 7 is about to yield to Thread 6.
+Thread 6 is resumed by Thread 7.
+Thread 6 is about to yield to Thread 5.
+Thread 5 is resumed by Thread 6.
+Thread 5 is about to yield to Thread 4.
+Thread 4 is resumed by Thread 5.
+Thread 4 is about to yield to Thread 3.
+Thread 3 is resumed by Thread 4.
+Thread 3 is about to yield to Thread 2.
+Thread 2 is resumed by Thread 3.
+Thread 2 is about to yield to Thread 1.
+Thread 1 is resumed by Thread 2.
+Thread 1 is about to yield to Thread 0.
+Thread 0 is resumed by Thread 1.
+Thread 0 is about to exit.
+Thread 9 is resumed by an exiting thread.
+Thread 9 is about to exit.
+Thread 8 is resumed by an exiting thread.
+Thread 8 is about to exit.
+Thread 7 is resumed by an exiting thread.
+Thread 7 is about to exit.
+Thread 6 is resumed by an exiting thread.
+Thread 6 is about to exit.
+Thread 5 is resumed by an exiting thread.
+Thread 5 is about to exit.
+Thread 4 is resumed by an exiting thread.
+Thread 4 is about to exit.
+Thread 3 is resumed by an exiting thread.
+Thread 3 is about to exit.
+Thread 2 is resumed by an exiting thread.
+Thread 2 is about to exit.
+Thread 1 is resumed by an exiting thread.
+Thread 1 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 6 ***************
+>
+>	- Queue test, MAXTHREADS threads complex yielding.
+>
+>	- 1. Main function creates 9 threads, then exits.
+>	- 2. Thread 1 recreates thread 0. 
+>	- 3. 10 threads yield to each other in two rounds.
+>	-    In the first round, each thread yields to the thread whose ID
+>	-    is current+3.  In the second round, each thread yields to next
+>	-    (given the previous round's yields) by calling MySchedThread.
+>	- 4. Threads exit one by one.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 0 is about to exit.
+Thread 1 entered doFirst.
+Created thread: 0
+Thread 1 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 is about to yield to Thread 7.
+Thread 7 entered doFirst.
+Thread 7 is about to yield to Thread 0.
+Thread 0 entered doFirst.
+Thread 0 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 is about to yield to Thread 6.
+Thread 6 entered doFirst.
+Thread 6 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 is about to yield to Thread 8.
+Thread 8 entered doFirst.
+Thread 8 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 is about to call MySchedThread.
+Thread 4 is active now.
+Thread 4 is about to call MySchedThread.
+Thread 7 is active now.
+Thread 7 is about to call MySchedThread.
+Thread 0 is active now.
+Thread 0 is about to call MySchedThread.
+Thread 3 is active now.
+Thread 3 is about to call MySchedThread.
+Thread 6 is active now.
+Thread 6 is about to call MySchedThread.
+Thread 9 is active now.
+Thread 9 is about to call MySchedThread.
+Thread 2 is active now.
+Thread 2 is about to call MySchedThread.
+Thread 5 is active now.
+Thread 5 is about to call MySchedThread.
+Thread 8 is active now.
+Thread 8 is about to call MySchedThread.
+Thread 1 is active now.
+Thread 1 is about to exit.
+Thread 4 is active now.
+Thread 4 is about to exit.
+Thread 7 is active now.
+Thread 7 is about to exit.
+Thread 0 is active now.
+Thread 0 is about to exit.
+Thread 3 is active now.
+Thread 3 is about to exit.
+Thread 6 is active now.
+Thread 6 is about to exit.
+Thread 9 is active now.
+Thread 9 is about to exit.
+Thread 2 is active now.
+Thread 2 is about to exit.
+Thread 5 is active now.
+Thread 5 is about to exit.
+Thread 8 is active now.
+Thread 8 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 0 is about to exit.
+Thread 1 entered doFirst.
+Created thread: 0
+Thread 1 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 is about to yield to Thread 7.
+Thread 7 entered doFirst.
+Thread 7 is about to yield to Thread 0.
+Thread 0 entered doFirst.
+Thread 0 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 is about to yield to Thread 6.
+Thread 6 entered doFirst.
+Thread 6 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 is about to yield to Thread 8.
+Thread 8 entered doFirst.
+Thread 8 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 is about to call MySchedThread.
+Thread 8 is active now.
+Thread 8 is about to call MySchedThread.
+Thread 1 is active now.
+Thread 1 is about to exit.
+Thread 5 is active now.
+Thread 5 is about to call MySchedThread.
+Thread 8 is active now.
+Thread 8 is about to exit.
+Thread 5 is active now.
+Thread 5 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+--- test6.out	Sun Mar 12 18:30:40 2017
++++ Detailed/cs120wfj/test6	Mon Mar 11 01:42:13 2019
+@@ -32,43 +32,15 @@
+ Thread 8 is about to yield to Thread 1.
+ Thread 1 is active now.
+ Thread 1 is about to call MySchedThread.
+-Thread 4 is active now.
+-Thread 4 is about to call MySchedThread.
+-Thread 7 is active now.
+-Thread 7 is about to call MySchedThread.
+-Thread 0 is active now.
+-Thread 0 is about to call MySchedThread.
+-Thread 3 is active now.
+-Thread 3 is about to call MySchedThread.
+-Thread 6 is active now.
+-Thread 6 is about to call MySchedThread.
+-Thread 9 is active now.
+-Thread 9 is about to call MySchedThread.
+-Thread 2 is active now.
+-Thread 2 is about to call MySchedThread.
+-Thread 5 is active now.
+-Thread 5 is about to call MySchedThread.
+ Thread 8 is active now.
+ Thread 8 is about to call MySchedThread.
+ Thread 1 is active now.
+ Thread 1 is about to exit.
+-Thread 4 is active now.
+-Thread 4 is about to exit.
+-Thread 7 is active now.
+-Thread 7 is about to exit.
+-Thread 0 is active now.
+-Thread 0 is about to exit.
+-Thread 3 is active now.
+-Thread 3 is about to exit.
+-Thread 6 is active now.
+-Thread 6 is about to exit.
+-Thread 9 is active now.
+-Thread 9 is about to exit.
+-Thread 2 is active now.
+-Thread 2 is about to exit.
+ Thread 5 is active now.
+-Thread 5 is about to exit.
++Thread 5 is about to call MySchedThread.
+ Thread 8 is active now.
+ Thread 8 is about to exit.
++Thread 5 is active now.
++Thread 5 is about to exit.
+ 
+ System exiting (normal)
+----------------------------
+
+.............................. Test FAILED
+
+> *************** Test 7 ***************
+>
+>	- Creation test, testing a corner case
+>
+>	- 1. Main thread creates 9 threads, executing a first function.
+>	-    When creating yet another thread, -1 should be returned.  
+>	-    The Main thread then exits, making room for an additional thread.
+>	- 2. Each of the 9 threads creates a new thread, executing a second
+>	-    function.  When creating yet another thread, -1 should be returned.
+>	-    After creation, each thread exits the first function.
+>	- 3. Threads execute the second one by one, doing nothing and exiting.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 0 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 0 is about to exit.
+Thread 1 entered doFirst.
+Thread 1 created Thread 0
+Thread 1 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 1 is about to exit.
+Thread 2 entered doFirst.
+Thread 2 created Thread 1
+Thread 2 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 2 is about to exit.
+Thread 3 entered doFirst.
+Thread 3 created Thread 2
+Thread 3 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 3 is about to exit.
+Thread 4 entered doFirst.
+Thread 4 created Thread 3
+Thread 4 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 4 is about to exit.
+Thread 5 entered doFirst.
+Thread 5 created Thread 4
+Thread 5 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 5 is about to exit.
+Thread 6 entered doFirst.
+Thread 6 created Thread 5
+Thread 6 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 6 is about to exit.
+Thread 7 entered doFirst.
+Thread 7 created Thread 6
+Thread 7 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 7 is about to exit.
+Thread 8 entered doFirst.
+Thread 8 created Thread 7
+Thread 8 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 8 is about to exit.
+Thread 9 entered doFirst.
+Thread 9 created Thread 8
+Thread 9 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 9 is about to exit.
+Thread 0 entered doSecond.
+Thread 0 is about to exit.
+Thread 1 entered doSecond.
+Thread 1 is about to exit.
+Thread 2 entered doSecond.
+Thread 2 is about to exit.
+Thread 3 entered doSecond.
+Thread 3 is about to exit.
+Thread 4 entered doSecond.
+Thread 4 is about to exit.
+Thread 5 entered doSecond.
+Thread 5 is about to exit.
+Thread 6 entered doSecond.
+Thread 6 is about to exit.
+Thread 7 entered doSecond.
+Thread 7 is about to exit.
+Thread 8 entered doSecond.
+Thread 8 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 0 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 0 is about to exit.
+Thread 1 entered doFirst.
+Thread 1 created Thread 0
+Thread 1 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 1 is about to exit.
+Thread 2 entered doFirst.
+Thread 2 created Thread 1
+Thread 2 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 2 is about to exit.
+Thread 3 entered doFirst.
+Thread 3 created Thread 2
+Thread 3 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 3 is about to exit.
+Thread 4 entered doFirst.
+Thread 4 created Thread 3
+Thread 4 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 4 is about to exit.
+Thread 5 entered doFirst.
+Thread 5 created Thread 4
+Thread 5 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 5 is about to exit.
+Thread 6 entered doFirst.
+Thread 6 created Thread 5
+Thread 6 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 6 is about to exit.
+Thread 7 entered doFirst.
+Thread 7 created Thread 6
+Thread 7 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 7 is about to exit.
+Thread 8 entered doFirst.
+Thread 8 created Thread 7
+Thread 8 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 8 is about to exit.
+Thread 9 entered doFirst.
+Thread 9 created Thread 8
+Thread 9 is about to create another thread: should return -1.
+MyCreateThread returns -1: succeed.
+Thread 9 is about to exit.
+Thread 0 entered doSecond.
+Thread 0 is about to exit.
+Thread 1 entered doSecond.
+Thread 1 is about to exit.
+Thread 2 entered doSecond.
+Thread 2 is about to exit.
+Thread 3 entered doSecond.
+Thread 3 is about to exit.
+Thread 4 entered doSecond.
+Thread 4 is about to exit.
+Thread 5 entered doSecond.
+Thread 5 is about to exit.
+Thread 6 entered doSecond.
+Thread 6 is about to exit.
+Thread 7 entered doSecond.
+Thread 7 is about to exit.
+Thread 8 entered doSecond.
+Thread 8 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 8 ***************
+>
+>	- Creation test, testing the order of creation.
+>
+>	- 1. The Main thread creates 9 threads.
+>	- 2. The Main thread, acting as a control thread, decides which
+>	-    thread will be terminated next.  The Main thread will also
+>	-    create new threads, and check their IDs.  Specifically, the
+>	-    order is: kill 5, 6, 7, create 5, kill 5, create 6, kill 1, 3, 5,
+>	-    create 7, 1, 3, 5.
+>	- 6. Threads exit one by one.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 5 will be killed.
+Thread 5 is active now.
+Thread 5 is about to exit.
+Thread 1 is active now.
+Thread 1 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 6 will be killed.
+Thread 6 is active now.
+Thread 6 is about to exit.
+Thread 2 is active now.
+Thread 2 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 7 will be killed.
+Thread 7 is active now.
+Thread 7 is about to exit.
+Thread 3 is active now.
+Thread 3 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 5 should be created.
+Thread 0 created Thread 5
+Thread 5 will be killed.
+Thread 5 is active now.
+Thread 5 is about to exit.
+Thread 4 is active now.
+Thread 4 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 6 should be created.
+Thread 0 created Thread 6
+Thread 1 will be killed.
+Thread 1 is active now.
+Thread 1 is about to exit.
+Thread 8 is active now.
+Thread 8 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 3 will be killed.
+Thread 3 is active now.
+Thread 3 is about to exit.
+Thread 9 is active now.
+Thread 9 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 5 will be killed.
+Thread 0 is active now.
+Thread 7 should be created.
+Thread 0 created Thread 7
+Thread 1 should be created.
+Thread 0 created Thread 1
+Thread 3 should be created.
+Thread 0 created Thread 3
+Thread 5 should be created.
+Thread 0 created Thread 5
+Thread 2 is about to exit.
+Thread 4 is about to exit.
+Thread 6 is about to exit.
+Thread 8 is about to exit.
+Thread 9 is about to exit.
+Thread 7 is about to exit.
+Thread 1 is about to exit.
+Thread 3 is about to exit.
+Thread 5 is about to exit.
+Thread 0 is active now.
+Thread 0 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 5 will be killed.
+Thread 5 is active now.
+Thread 5 is about to exit.
+Thread 1 is active now.
+Thread 1 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 6 will be killed.
+Thread 6 is active now.
+Thread 6 is about to exit.
+Thread 2 is active now.
+Thread 2 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 7 will be killed.
+Thread 7 is active now.
+Thread 7 is about to exit.
+Thread 3 is active now.
+Thread 3 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 5 should be created.
+Thread 0 created Thread 5
+Thread 5 will be killed.
+Thread 5 is active now.
+Thread 5 is about to exit.
+Thread 4 is active now.
+Thread 4 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 6 should be created.
+Thread 0 created Thread 6
+Thread 1 will be killed.
+Thread 1 is active now.
+Thread 1 is about to exit.
+Thread 8 is active now.
+Thread 8 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 3 will be killed.
+Thread 3 is active now.
+Thread 3 is about to exit.
+Thread 9 is active now.
+Thread 9 is about to yield back to Thread 0.
+Thread 0 is active now.
+Thread 5 will be killed.
+Thread 0 is active now.
+Thread 7 should be created.
+Thread 0 created Thread 7
+Thread 1 should be created.
+Thread 0 created Thread 1
+Thread 3 should be created.
+Thread 0 created Thread 3
+Thread 5 should be created.
+Thread 0 created Thread 5
+Thread 2 is about to exit.
+Thread 4 is about to exit.
+Thread 6 is about to exit.
+Thread 8 is about to exit.
+Thread 9 is about to exit.
+Thread 7 is about to exit.
+Thread 1 is about to exit.
+Thread 3 is about to exit.
+Thread 5 is about to exit.
+Thread 0 is active now.
+Thread 0 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 9 ***************
+>
+>	- Complex creation, exiting, and yielding
+>
+>	- Normal thread: 
+>	-     This thread will execute a function that does nothing.
+>	- Creating thread:
+>	-     This thread will execute a function that creates a new thread.
+>	-     When the new thread runs, it executes a function that creates
+>	-     another thread.
+
+----------EXPECTED----------
+
+Thread 0 created creating Thread 1
+Thread 0 created normal Thread 2
+Thread 0 created normal Thread 3
+Thread 0 created normal Thread 4
+Thread 0 created normal Thread 5
+Thread 0 created creating Thread 6
+Thread 0 created normal Thread 7
+Thread 0 created creating Thread 8
+Thread 0 created normal Thread 9
+Thread 0 is about to exit.
+Thread 1 entered doCreate.
+Thread 1 created Thread 0, which will create a normal thread later.
+Thread 1 in doCreate, done.
+Thread 1 is about to exit.
+Thread 2 in doNothing, about to call MySchedThread.
+Thread 3 in doNothing, about to call MySchedThread.
+Thread 4 in doNothing, about to call MySchedThread.
+Thread 5 in doNothing, about to call MySchedThread.
+Thread 6 entered doCreate.
+Thread 6 created Thread 1, which will create a normal thread later.
+Thread 6 in doCreate, done.
+Thread 6 is about to exit.
+Thread 7 in doNothing, about to call MySchedThread.
+Thread 8 entered doCreate.
+Thread 8 created Thread 6, which will create a normal thread later.
+Thread 8 in doCreate, done.
+Thread 8 is about to exit.
+Thread 9 in doNothing, about to call MySchedThread.
+Thread 0 entered doSecondCreate.
+Thread 0 created normal Thread 8
+Thread 0 in doSecondCreate, done.
+Thread 0 is about to exit.
+Thread 2 exiting doNothing.
+Thread 2 is about to exit.
+Thread 3 exiting doNothing.
+Thread 3 is about to exit.
+Thread 4 exiting doNothing.
+Thread 4 is about to exit.
+Thread 5 exiting doNothing.
+Thread 5 is about to exit.
+Thread 1 entered doSecondCreate.
+Thread 1 created normal Thread 0
+Thread 1 in doSecondCreate, done.
+Thread 1 is about to exit.
+Thread 7 exiting doNothing.
+Thread 7 is about to exit.
+Thread 6 entered doSecondCreate.
+Thread 6 created normal Thread 1
+Thread 6 in doSecondCreate, done.
+Thread 6 is about to exit.
+Thread 9 exiting doNothing.
+Thread 9 is about to exit.
+Thread 8 in doNothing, about to call MySchedThread.
+Thread 0 in doNothing, about to call MySchedThread.
+Thread 1 in doNothing, about to call MySchedThread.
+Thread 8 exiting doNothing.
+Thread 8 is about to exit.
+Thread 0 exiting doNothing.
+Thread 0 is about to exit.
+Thread 1 exiting doNothing.
+Thread 1 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created creating Thread 1
+Thread 0 created normal Thread 2
+Thread 0 created normal Thread 3
+Thread 0 created normal Thread 4
+Thread 0 created normal Thread 5
+Thread 0 created creating Thread 6
+Thread 0 created normal Thread 7
+Thread 0 created creating Thread 8
+Thread 0 created normal Thread 9
+Thread 0 is about to exit.
+Thread 1 entered doCreate.
+Thread 1 created Thread 0, which will create a normal thread later.
+Thread 1 in doCreate, done.
+Thread 1 is about to exit.
+Thread 2 in doNothing, about to call MySchedThread.
+Thread 3 in doNothing, about to call MySchedThread.
+Thread 4 in doNothing, about to call MySchedThread.
+Thread 5 in doNothing, about to call MySchedThread.
+Thread 6 entered doCreate.
+Thread 6 created Thread 1, which will create a normal thread later.
+Thread 6 in doCreate, done.
+Thread 6 is about to exit.
+Thread 7 in doNothing, about to call MySchedThread.
+Thread 8 entered doCreate.
+Thread 8 created Thread 6, which will create a normal thread later.
+Thread 8 in doCreate, done.
+Thread 8 is about to exit.
+Thread 9 in doNothing, about to call MySchedThread.
+Thread 0 entered doSecondCreate.
+Thread 0 created normal Thread 8
+Thread 0 in doSecondCreate, done.
+Thread 0 is about to exit.
+Thread 2 exiting doNothing.
+Thread 2 is about to exit.
+Thread 3 exiting doNothing.
+Thread 3 is about to exit.
+Thread 4 exiting doNothing.
+Thread 4 is about to exit.
+Thread 5 exiting doNothing.
+Thread 5 is about to exit.
+Thread 1 entered doSecondCreate.
+Thread 1 created normal Thread 0
+Thread 1 in doSecondCreate, done.
+Thread 1 is about to exit.
+Thread 7 exiting doNothing.
+Thread 7 is about to exit.
+Thread 6 entered doSecondCreate.
+Thread 6 created normal Thread 1
+Thread 6 in doSecondCreate, done.
+Thread 6 is about to exit.
+Thread 9 exiting doNothing.
+Thread 9 is about to exit.
+Thread 8 in doNothing, about to call MySchedThread.
+Thread 0 in doNothing, about to call MySchedThread.
+Thread 1 in doNothing, about to call MySchedThread.
+Thread 8 exiting doNothing.
+Thread 8 is about to exit.
+Thread 0 exiting doNothing.
+Thread 0 is about to exit.
+Thread 1 exiting doNothing.
+Thread 1 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 10 ***************
+>
+>	- Stack integrity check, a simple case
+>
+>	- 1. The Main thread creates 9 threads, then exits.
+>	- 2. Thread 1 will recreate Thread 0.
+>	- 3. Each thread will declare a local array with of size 1000 bytes, 
+>	-    and initilizes it with some value.
+>	- 4. After all threads create their local arrays, each thread check
+>	-    its data, then exits.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doFirst.
+Thread 1 created Thread 0
+Thread 1 creates an array, data = B
+Thread 1 is about to call MySchedThread.
+Thread 2 entered doFirst.
+Thread 2 creates an array, data = C
+Thread 2 is about to call MySchedThread.
+Thread 3 entered doFirst.
+Thread 3 creates an array, data = D
+Thread 3 is about to call MySchedThread.
+Thread 4 entered doFirst.
+Thread 4 creates an array, data = E
+Thread 4 is about to call MySchedThread.
+Thread 5 entered doFirst.
+Thread 5 creates an array, data = F
+Thread 5 is about to call MySchedThread.
+Thread 6 entered doFirst.
+Thread 6 creates an array, data = G
+Thread 6 is about to call MySchedThread.
+Thread 7 entered doFirst.
+Thread 7 creates an array, data = H
+Thread 7 is about to call MySchedThread.
+Thread 8 entered doFirst.
+Thread 8 creates an array, data = I
+Thread 8 is about to call MySchedThread.
+Thread 9 entered doFirst.
+Thread 9 creates an array, data = J
+Thread 9 is about to call MySchedThread.
+Thread 0 entered doFirst.
+Thread 0 creates an array, data = A
+Thread 0 is about to call MySchedThread.
+Thread 1 is active now.
+Thread 1 checks data, data = B
+Thread 1 is about to exit.
+Thread 2 is active now.
+Thread 2 checks data, data = C
+Thread 2 is about to exit.
+Thread 3 is active now.
+Thread 3 checks data, data = D
+Thread 3 is about to exit.
+Thread 4 is active now.
+Thread 4 checks data, data = E
+Thread 4 is about to exit.
+Thread 5 is active now.
+Thread 5 checks data, data = F
+Thread 5 is about to exit.
+Thread 6 is active now.
+Thread 6 checks data, data = G
+Thread 6 is about to exit.
+Thread 7 is active now.
+Thread 7 checks data, data = H
+Thread 7 is about to exit.
+Thread 8 is active now.
+Thread 8 checks data, data = I
+Thread 8 is about to exit.
+Thread 9 is active now.
+Thread 9 checks data, data = J
+Thread 9 is about to exit.
+Thread 0 is active now.
+Thread 0 checks data, data = A
+Thread 0 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doFirst.
+Thread 1 created Thread 0
+Thread 1 creates an array, data = B
+Thread 1 is about to call MySchedThread.
+Thread 2 entered doFirst.
+Thread 2 creates an array, data = C
+Thread 2 is about to call MySchedThread.
+Thread 3 entered doFirst.
+Thread 3 creates an array, data = D
+Thread 3 is about to call MySchedThread.
+Thread 4 entered doFirst.
+Thread 4 creates an array, data = E
+Thread 4 is about to call MySchedThread.
+Thread 5 entered doFirst.
+Thread 5 creates an array, data = F
+Thread 5 is about to call MySchedThread.
+Thread 6 entered doFirst.
+Thread 6 creates an array, data = G
+Thread 6 is about to call MySchedThread.
+Thread 7 entered doFirst.
+Thread 7 creates an array, data = H
+Thread 7 is about to call MySchedThread.
+Thread 8 entered doFirst.
+Thread 8 creates an array, data = I
+Thread 8 is about to call MySchedThread.
+Thread 9 entered doFirst.
+Thread 9 creates an array, data = J
+Thread 9 is about to call MySchedThread.
+Thread 0 entered doFirst.
+Thread 0 creates an array, data = A
+Thread 0 is about to call MySchedThread.
+Thread 1 is active now.
+Thread 1 checks data, data = B
+Thread 1 is about to exit.
+Thread 2 is active now.
+Thread 2 checks data, data = C
+Thread 2 is about to exit.
+Thread 3 is active now.
+Thread 3 checks data, data = D
+Thread 3 is about to exit.
+Thread 4 is active now.
+Thread 4 checks data, data = E
+Thread 4 is about to exit.
+Thread 5 is active now.
+Thread 5 checks data, data = F
+Thread 5 is about to exit.
+Thread 6 is active now.
+Thread 6 checks data, data = G
+Thread 6 is about to exit.
+Thread 7 is active now.
+Thread 7 checks data, data = H
+Thread 7 is about to exit.
+Thread 8 is active now.
+Thread 8 checks data, data = I
+Thread 8 is about to exit.
+Thread 9 is active now.
+Thread 9 checks data, data = J
+Thread 9 is about to exit.
+Thread 0 is active now.
+Thread 0 checks data, data = A
+Thread 0 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 11 ***************
+>
+>	- Stack integrity check
+> 
+>	- 1. The Main thread creates 9 threads.
+>	- 2. Each thread creates an array with the size of (65536 * 0.75), 
+>	-    then yields back and forth to check data integrity.
+>	-    The first and last elements of the array are checked.
+>	- 3. There are 3 rounds creation and checking.  In each round, 
+>	-    Threads 1, 5, and 9 are killed, then recreated by the Main thread. 
+>	-    Threads 1, 5, and 9 create a new array initilized with a new value.
+>	- 4. If this test fails, it may imply that the thread stacks are
+>	-    bumping into each other.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 creates an array, first element = A, last element = A
+Thread 1 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 creates an array, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 creates an array, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 creates an array, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 creates an array, first element = E, last element = E
+Thread 5 is about to yield to Thread 6.
+Thread 6 entered doFirst.
+Thread 6 creates an array, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 entered doFirst.
+Thread 7 creates an array, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 entered doFirst.
+Thread 8 creates an array, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 creates an array, first element = I, last element = I
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 checks data, first element = A, last element = A
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 is active now.
+Thread 5 checks data, first element = E, last element = E
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 is active now.
+Thread 9 checks data, first element = I, last element = I
+Thread 9 is about to yield to Thread 0.
+Thread 1 is about to exit.
+Thread 5 is about to exit.
+Thread 9 is about to exit.
+Thread 0 created Thread 1
+Thread 0 created Thread 5
+Thread 0 created Thread 9
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 creates an array, first element = J, last element = J
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 creates an array, first element = K, last element = K
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 creates an array, first element = L, last element = L
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 checks data, first element = J, last element = J
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 is active now.
+Thread 5 checks data, first element = K, last element = K
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 is active now.
+Thread 9 checks data, first element = L, last element = L
+Thread 9 is about to yield to Thread 0.
+Thread 1 is about to exit.
+Thread 5 is about to exit.
+Thread 9 is about to exit.
+Thread 0 created Thread 1
+Thread 0 created Thread 5
+Thread 0 created Thread 9
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 creates an array, first element = M, last element = M
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 creates an array, first element = N, last element = N
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 creates an array, first element = O, last element = O
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 checks data, first element = M, last element = M
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 is active now.
+Thread 5 checks data, first element = N, last element = N
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 is active now.
+Thread 9 checks data, first element = O, last element = O
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to exit.
+Thread 1 is about to exit.
+Thread 2 is about to exit.
+Thread 3 is about to exit.
+Thread 4 is about to exit.
+Thread 5 is about to exit.
+Thread 6 is about to exit.
+Thread 7 is about to exit.
+Thread 8 is about to exit.
+Thread 9 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 creates an array, first element = A, last element = A
+Thread 1 is about to yield to Thread 2.
+Thread 2 entered doFirst.
+Thread 2 creates an array, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 entered doFirst.
+Thread 3 creates an array, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 entered doFirst.
+Thread 4 creates an array, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 creates an array, first element = E, last element = E
+Thread 5 is about to yield to Thread 6.
+Thread 6 entered doFirst.
+Thread 6 creates an array, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 entered doFirst.
+Thread 7 creates an array, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 entered doFirst.
+Thread 8 creates an array, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 creates an array, first element = I, last element = I
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 checks data, first element = A, last element = A
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 is active now.
+Thread 5 checks data, first element = E, last element = E
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 is active now.
+Thread 9 checks data, first element = I, last element = I
+Thread 9 is about to yield to Thread 0.
+Thread 1 is about to exit.
+Thread 5 is about to exit.
+Thread 9 is about to exit.
+Thread 0 created Thread 1
+Thread 0 created Thread 5
+Thread 0 created Thread 9
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 creates an array, first element = J, last element = J
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 creates an array, first element = K, last element = K
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 creates an array, first element = L, last element = L
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 checks data, first element = J, last element = J
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 is active now.
+Thread 5 checks data, first element = K, last element = K
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 is active now.
+Thread 9 checks data, first element = L, last element = L
+Thread 9 is about to yield to Thread 0.
+Thread 1 is about to exit.
+Thread 5 is about to exit.
+Thread 9 is about to exit.
+Thread 0 created Thread 1
+Thread 0 created Thread 5
+Thread 0 created Thread 9
+Thread 0 is about to yield to Thread 1.
+Thread 1 entered doFirst.
+Thread 1 creates an array, first element = M, last element = M
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 entered doFirst.
+Thread 5 creates an array, first element = N, last element = N
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 entered doFirst.
+Thread 9 creates an array, first element = O, last element = O
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to yield to Thread 1.
+Thread 1 is active now.
+Thread 1 checks data, first element = M, last element = M
+Thread 1 is about to yield to Thread 2.
+Thread 2 is active now.
+Thread 2 checks data, first element = B, last element = B
+Thread 2 is about to yield to Thread 3.
+Thread 3 is active now.
+Thread 3 checks data, first element = C, last element = C
+Thread 3 is about to yield to Thread 4.
+Thread 4 is active now.
+Thread 4 checks data, first element = D, last element = D
+Thread 4 is about to yield to Thread 5.
+Thread 5 is active now.
+Thread 5 checks data, first element = N, last element = N
+Thread 5 is about to yield to Thread 6.
+Thread 6 is active now.
+Thread 6 checks data, first element = F, last element = F
+Thread 6 is about to yield to Thread 7.
+Thread 7 is active now.
+Thread 7 checks data, first element = G, last element = G
+Thread 7 is about to yield to Thread 8.
+Thread 8 is active now.
+Thread 8 checks data, first element = H, last element = H
+Thread 8 is about to yield to Thread 9.
+Thread 9 is active now.
+Thread 9 checks data, first element = O, last element = O
+Thread 9 is about to yield to Thread 0.
+Thread 0 is about to exit.
+Thread 1 is about to exit.
+Thread 2 is about to exit.
+Thread 3 is about to exit.
+Thread 4 is about to exit.
+Thread 5 is about to exit.
+Thread 6 is about to exit.
+Thread 7 is about to exit.
+Thread 8 is about to exit.
+Thread 9 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+> *************** Test 12 ***************
+>
+>	- Strict checking of stack allocation
+>
+>	- 1. The Main thread creates 9 threads.
+>	- 2. Each thread checks the stack size between the current thread and
+>	-    the last thread, then exits.
+>	- 3. The Main thread creates another 9 threads.
+>	- 4. Each thread checks whether it starts at the same location as the
+>	-    last time.
+
+----------EXPECTED----------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doFirst.
+Start checking stack size...
+Stack size for thread 0 is enough.
+Thread 1 is about to exit.
+Thread 2 entered doFirst.
+Start checking stack size...
+Stack size for thread 1 is enough.
+Thread 2 is about to exit.
+Thread 3 entered doFirst.
+Start checking stack size...
+Stack size for thread 2 is enough.
+Thread 3 is about to exit.
+Thread 4 entered doFirst.
+Start checking stack size...
+Stack size for thread 3 is enough.
+Thread 4 is about to exit.
+Thread 5 entered doFirst.
+Start checking stack size...
+Stack size for thread 4 is enough.
+Thread 5 is about to exit.
+Thread 6 entered doFirst.
+Start checking stack size...
+Stack size for thread 5 is enough.
+Thread 6 is about to exit.
+Thread 7 entered doFirst.
+Start checking stack size...
+Stack size for thread 6 is enough.
+Thread 7 is about to exit.
+Thread 8 entered doFirst.
+Start checking stack size...
+Stack size for thread 7 is enough.
+Thread 8 is about to exit.
+Thread 9 entered doFirst.
+Start checking stack size...
+Stack size for thread 8 is enough.
+Thread 9 is about to exit.
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doSecond.
+Start checking stack initial address...
+Thread 1 starts at the same location: good.
+Thread 1 is about to exit.
+Thread 2 entered doSecond.
+Start checking stack initial address...
+Thread 2 starts at the same location: good.
+Thread 2 is about to exit.
+Thread 3 entered doSecond.
+Start checking stack initial address...
+Thread 3 starts at the same location: good.
+Thread 3 is about to exit.
+Thread 4 entered doSecond.
+Start checking stack initial address...
+Thread 4 starts at the same location: good.
+Thread 4 is about to exit.
+Thread 5 entered doSecond.
+Start checking stack initial address...
+Thread 5 starts at the same location: good.
+Thread 5 is about to exit.
+Thread 6 entered doSecond.
+Start checking stack initial address...
+Thread 6 starts at the same location: good.
+Thread 6 is about to exit.
+Thread 7 entered doSecond.
+Start checking stack initial address...
+Thread 7 starts at the same location: good.
+Thread 7 is about to exit.
+Thread 8 entered doSecond.
+Start checking stack initial address...
+Thread 8 starts at the same location: good.
+Thread 8 is about to exit.
+Thread 9 entered doSecond.
+Start checking stack initial address...
+Thread 9 starts at the same location: good.
+Thread 9 is about to exit.
+Thread 0 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------FOUND-------------
+
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doFirst.
+Start checking stack size...
+Stack size for thread 0 is enough.
+Thread 1 is about to exit.
+Thread 2 entered doFirst.
+Start checking stack size...
+Stack size for thread 1 is enough.
+Thread 2 is about to exit.
+Thread 3 entered doFirst.
+Start checking stack size...
+Stack size for thread 2 is enough.
+Thread 3 is about to exit.
+Thread 4 entered doFirst.
+Start checking stack size...
+Stack size for thread 3 is enough.
+Thread 4 is about to exit.
+Thread 5 entered doFirst.
+Start checking stack size...
+Stack size for thread 4 is enough.
+Thread 5 is about to exit.
+Thread 6 entered doFirst.
+Start checking stack size...
+Stack size for thread 5 is enough.
+Thread 6 is about to exit.
+Thread 7 entered doFirst.
+Start checking stack size...
+Stack size for thread 6 is enough.
+Thread 7 is about to exit.
+Thread 8 entered doFirst.
+Start checking stack size...
+Stack size for thread 7 is enough.
+Thread 8 is about to exit.
+Thread 9 entered doFirst.
+Start checking stack size...
+Stack size for thread 8 is enough.
+Thread 9 is about to exit.
+Thread 0 created Thread 1
+Thread 0 created Thread 2
+Thread 0 created Thread 3
+Thread 0 created Thread 4
+Thread 0 created Thread 5
+Thread 0 created Thread 6
+Thread 0 created Thread 7
+Thread 0 created Thread 8
+Thread 0 created Thread 9
+Thread 1 entered doSecond.
+Start checking stack initial address...
+Thread 1 starts at the same location: good.
+Thread 1 is about to exit.
+Thread 2 entered doSecond.
+Start checking stack initial address...
+Thread 2 starts at the same location: good.
+Thread 2 is about to exit.
+Thread 3 entered doSecond.
+Start checking stack initial address...
+Thread 3 starts at the same location: good.
+Thread 3 is about to exit.
+Thread 4 entered doSecond.
+Start checking stack initial address...
+Thread 4 starts at the same location: good.
+Thread 4 is about to exit.
+Thread 5 entered doSecond.
+Start checking stack initial address...
+Thread 5 starts at the same location: good.
+Thread 5 is about to exit.
+Thread 6 entered doSecond.
+Start checking stack initial address...
+Thread 6 starts at the same location: good.
+Thread 6 is about to exit.
+Thread 7 entered doSecond.
+Start checking stack initial address...
+Thread 7 starts at the same location: good.
+Thread 7 is about to exit.
+Thread 8 entered doSecond.
+Start checking stack initial address...
+Thread 8 starts at the same location: good.
+Thread 8 is about to exit.
+Thread 9 entered doSecond.
+Start checking stack initial address...
+Thread 9 starts at the same location: good.
+Thread 9 is about to exit.
+Thread 0 is about to exit.
+
+System exiting (normal)
+----------------------------
+----------DIFFERENCE--------
+No differences encountered
+----------------------------
+
+.............................. Test PASSED, worth 1 point
+
+*************************** TOTAL POINTS = 10 ***************************
