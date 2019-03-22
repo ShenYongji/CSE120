@@ -1,0 +1,612 @@
+******  PA1 Test Results: cs120wfj, Sun Jan 20 02:47:43 PST 2019  ******
+
+Total tests passed = 6 out of 6     Total points = 3.0 out of 3 (100%)
+
+
+******  Individual Test Results  ******
+
+Compiling mycode1.c
+cc -g -L/home/solaris/ieng9/cs120w/public/umix/lib -lumix1g -c mycode1.c
+cc -g -L/home/solaris/ieng9/cs120w/public/umix/lib -lumix1g -o tp1A tp1A.c mycode1.o
+cc -g -L/home/solaris/ieng9/cs120w/public/umix/lib -lumix1g -o tp1B tp1B.c mycode1.o
+cc -g -L/home/solaris/ieng9/cs120w/public/umix/lib -lumix1g -o tp1C tp1C.c mycode1.o
+cc -g -L/home/solaris/ieng9/cs120w/public/umix/lib -lumix1g -o tp1D tp1D.c mycode1.o
+cc -g -L/home/solaris/ieng9/cs120w/public/umix/lib -lumix1g -o tp1E tp1E.c mycode1.o
+cc -g -L/home/solaris/ieng9/cs120w/public/umix/lib -lumix1g -o tp1F tp1F.c mycode1.o
+
+******  Test A Reference Output  ******
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33
+
+Test of parent Forking single child
+
+I am the parent, my PID is 1
+Parent about to create a child
+Parent created a child process whose PID is 2
+Parent about to Exit
+I am the child, my PID is 2
+Child with PID 2 about to Exit
+
+System exiting (normal)
+
+*****  TEST A Student Output  *****
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33 
+
+Test of parent Forking single child
+
+I am the parent, my PID is 1
+Parent about to create a child
+Parent created a child process whose PID is 2
+Parent about to Exit
+I am the child, my PID is 2
+Child with PID 2 about to Exit
+
+System exiting (normal)
+
+*****  Test A diff Results  *****
+
+(no difference)
+
+Test PASSED: outputs match
+
+******  Test B Reference Output  ******
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33
+
+Test of parent Forking max number of children
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to create second child
+Parent created a child process whose PID is 3
+Parent about to create third child
+Parent created a child process whose PID is 4
+Parent about to create fourth child
+Parent created a child process whose PID is 5
+Parent about to create fifth child
+Parent created a child process whose PID is 6
+Parent about to create sixth child
+Parent created a child process whose PID is 7
+Parent about to create seventh child
+Parent created a child process whose PID is 8
+Parent about to create eighth child
+Parent created a child process whose PID is 9
+Parent about to create ninth child
+Parent created a child process whose PID is 10
+Parent about to Exit
+I am a child, my PID is 2
+Child with PID 2 about to Exit
+I am a child, my PID is 3
+Child with PID 3 about to Exit
+I am a child, my PID is 4
+Child with PID 4 about to Exit
+I am a child, my PID is 5
+Child with PID 5 about to Exit
+I am a child, my PID is 6
+Child with PID 6 about to Exit
+I am a child, my PID is 7
+Child with PID 7 about to Exit
+I am a child, my PID is 8
+Child with PID 8 about to Exit
+I am a child, my PID is 9
+Child with PID 9 about to Exit
+I am a child, my PID is 10
+Child with PID 10 about to Exit
+
+System exiting (normal)
+
+*****  TEST B Student Output  *****
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33 
+
+Test of parent Forking max number of children
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to create second child
+Parent created a child process whose PID is 3
+Parent about to create third child
+Parent created a child process whose PID is 4
+Parent about to create fourth child
+Parent created a child process whose PID is 5
+Parent about to create fifth child
+Parent created a child process whose PID is 6
+Parent about to create sixth child
+Parent created a child process whose PID is 7
+Parent about to create seventh child
+Parent created a child process whose PID is 8
+Parent about to create eighth child
+Parent created a child process whose PID is 9
+Parent about to create ninth child
+Parent created a child process whose PID is 10
+Parent about to Exit
+I am a child, my PID is 2
+Child with PID 2 about to Exit
+I am a child, my PID is 3
+Child with PID 3 about to Exit
+I am a child, my PID is 4
+Child with PID 4 about to Exit
+I am a child, my PID is 5
+Child with PID 5 about to Exit
+I am a child, my PID is 6
+Child with PID 6 about to Exit
+I am a child, my PID is 7
+Child with PID 7 about to Exit
+I am a child, my PID is 8
+Child with PID 8 about to Exit
+I am a child, my PID is 9
+Child with PID 9 about to Exit
+I am a child, my PID is 10
+Child with PID 10 about to Exit
+
+System exiting (normal)
+
+*****  Test B diff Results  *****
+
+(no difference)
+
+Test PASSED: outputs match
+
+******  Test C Reference Output  ******
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33
+
+Test of parent Forking N children which then Yield in reverse order
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to create second child
+Parent created a child process whose PID is 3
+Parent about to create third child
+Parent created a child process whose PID is 4
+Parent about to create fourth child
+Parent created a child process whose PID is 5
+Parent about to create fifth child
+Parent created a child process whose PID is 6
+Parent about to create sixth child
+Parent created a child process whose PID is 7
+Parent about to Yield to child 7
+I am a child, my PID is 7
+Child with PID 7 about to Yield to child 6
+I am a child, my PID is 6
+Child with PID 6 about to Yield to child 5
+I am a child, my PID is 5
+Child with PID 5 about to Yield to child 4
+I am a child, my PID is 4
+Child with PID 4 about to Yield to child 3
+I am a child, my PID is 3
+Child with PID 3 about to Yield to child 2
+I am a child, my PID is 2
+Child with PID 2 about to Yield to parent
+Parent about to Exit
+Child with PID 2 about to Exit
+Child with PID 3 about to Exit
+Child with PID 4 about to Exit
+Child with PID 5 about to Exit
+Child with PID 6 about to Exit
+Child with PID 7 about to Exit
+
+System exiting (normal)
+
+*****  TEST C Student Output  *****
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33 
+
+Test of parent Forking N children which then Yield in reverse order
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to create second child
+Parent created a child process whose PID is 3
+Parent about to create third child
+Parent created a child process whose PID is 4
+Parent about to create fourth child
+Parent created a child process whose PID is 5
+Parent about to create fifth child
+Parent created a child process whose PID is 6
+Parent about to create sixth child
+Parent created a child process whose PID is 7
+Parent about to Yield to child 7
+I am a child, my PID is 7
+Child with PID 7 about to Yield to child 6
+I am a child, my PID is 6
+Child with PID 6 about to Yield to child 5
+I am a child, my PID is 5
+Child with PID 5 about to Yield to child 4
+I am a child, my PID is 4
+Child with PID 4 about to Yield to child 3
+I am a child, my PID is 3
+Child with PID 3 about to Yield to child 2
+I am a child, my PID is 2
+Child with PID 2 about to Yield to parent
+Parent about to Exit
+Child with PID 2 about to Exit
+Child with PID 3 about to Exit
+Child with PID 4 about to Exit
+Child with PID 5 about to Exit
+Child with PID 6 about to Exit
+Child with PID 7 about to Exit
+
+System exiting (normal)
+
+*****  Test C diff Results  *****
+
+(no difference)
+
+Test PASSED: outputs match
+
+******  Test D Reference Output  ******
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33
+
+Test of parent Forking, then child Forks, ..., with forward Yielding
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to Yield to child whose PID is 2
+I am a child, my PID is 2
+Child with PID 2 about to create second child
+Child with PID 2 about to Yield to child whose PID is 3
+I am a child, my PID is 3
+Child with PID 3 about to create third child
+Child with PID 3 about to Yield to child whose PID is 4
+I am a child, my PID is 4
+Child with PID 4 about to create fourth child
+Child with PID 4 about to Yield to child whose PID is 5
+I am a child, my PID is 5
+Child with PID 5 about to create fifth child
+Child with PID 5 about to Yield to child whose PID is 6
+I am a child, my PID is 6
+Child with PID 6 about to create sixth child
+Child with PID 6 about to Yield to child whose PID is 7
+I am a child, my PID is 7
+Child with PID 7 about to create seventh child
+Child with PID 7 about to Yield to child whose PID is 8
+I am a child, my PID is 8
+Child with PID 8 about to Exit
+Parent about to Exit
+Child with PID 2 about to Exit
+Child with PID 3 about to Exit
+Child with PID 4 about to Exit
+Child with PID 5 about to Exit
+Child with PID 6 about to Exit
+Child with PID 7 about to Exit
+
+System exiting (normal)
+
+*****  TEST D Student Output  *****
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33 
+
+Test of parent Forking, then child Forks, ..., with forward Yielding
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to Yield to child whose PID is 2
+I am a child, my PID is 2
+Child with PID 2 about to create second child
+Child with PID 2 about to Yield to child whose PID is 3
+I am a child, my PID is 3
+Child with PID 3 about to create third child
+Child with PID 3 about to Yield to child whose PID is 4
+I am a child, my PID is 4
+Child with PID 4 about to create fourth child
+Child with PID 4 about to Yield to child whose PID is 5
+I am a child, my PID is 5
+Child with PID 5 about to create fifth child
+Child with PID 5 about to Yield to child whose PID is 6
+I am a child, my PID is 6
+Child with PID 6 about to create sixth child
+Child with PID 6 about to Yield to child whose PID is 7
+I am a child, my PID is 7
+Child with PID 7 about to create seventh child
+Child with PID 7 about to Yield to child whose PID is 8
+I am a child, my PID is 8
+Child with PID 8 about to Exit
+Parent about to Exit
+Child with PID 2 about to Exit
+Child with PID 3 about to Exit
+Child with PID 4 about to Exit
+Child with PID 5 about to Exit
+Child with PID 6 about to Exit
+Child with PID 7 about to Exit
+
+System exiting (normal)
+
+*****  Test D diff Results  *****
+
+(no difference)
+
+Test PASSED: outputs match
+
+******  Test E Reference Output  ******
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33
+
+Test of parent Forking N children which then Yield in reverse order
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to create second child
+Parent created a child process whose PID is 3
+Parent about to create third child
+Parent created a child process whose PID is 4
+Parent about to create fourth child
+Parent created a child process whose PID is 5
+Parent about to create fifth child
+Parent created a child process whose PID is 6
+Parent about to create sixth child
+Parent created a child process whose PID is 7
+Parent about to create seventh child
+Parent created a child process whose PID is 8
+Parent about to create eighth child
+Parent created a child process whose PID is 9
+Parent about to Yield to child 9
+I am a child, my PID is 9
+Child with PID 9 about to Yield to child 8
+I am a child, my PID is 8
+Child with PID 8 about to Yield to child 7
+I am a child, my PID is 7
+Child with PID 7 about to Yield to child 6
+I am a child, my PID is 6
+Child with PID 6 about to Yield to child 5
+I am a child, my PID is 5
+Child with PID 5 about to Yield to child 4
+I am a child, my PID is 4
+Child with PID 4 about to Yield to child 3
+I am a child, my PID is 3
+Child with PID 3 about to Yield to child 2
+I am a child, my PID is 2
+Child with PID 2 about to Yield to parent
+Yield returns 2 to parent
+Parent about to Exit
+Yield returns 1 to child with PID 2
+Child with PID 2 about to Exit
+Yield returns 2 to child with PID 3
+Child with PID 3 about to Exit
+Yield returns 3 to child with PID 4
+Child with PID 4 about to Exit
+Yield returns 4 to child with PID 5
+Child with PID 5 about to Exit
+Yield returns 5 to child with PID 6
+Child with PID 6 about to Exit
+Yield returns 6 to child with PID 7
+Child with PID 7 about to Exit
+Yield returns 7 to child with PID 8
+Child with PID 8 about to Exit
+Yield returns 8 to child with PID 9
+Child with PID 9 about to Exit
+
+System exiting (normal)
+
+*****  TEST E Student Output  *****
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33 
+
+Test of parent Forking N children which then Yield in reverse order
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent about to create second child
+Parent created a child process whose PID is 3
+Parent about to create third child
+Parent created a child process whose PID is 4
+Parent about to create fourth child
+Parent created a child process whose PID is 5
+Parent about to create fifth child
+Parent created a child process whose PID is 6
+Parent about to create sixth child
+Parent created a child process whose PID is 7
+Parent about to create seventh child
+Parent created a child process whose PID is 8
+Parent about to create eighth child
+Parent created a child process whose PID is 9
+Parent about to Yield to child 9
+I am a child, my PID is 9
+Child with PID 9 about to Yield to child 8
+I am a child, my PID is 8
+Child with PID 8 about to Yield to child 7
+I am a child, my PID is 7
+Child with PID 7 about to Yield to child 6
+I am a child, my PID is 6
+Child with PID 6 about to Yield to child 5
+I am a child, my PID is 5
+Child with PID 5 about to Yield to child 4
+I am a child, my PID is 4
+Child with PID 4 about to Yield to child 3
+I am a child, my PID is 3
+Child with PID 3 about to Yield to child 2
+I am a child, my PID is 2
+Child with PID 2 about to Yield to parent
+Yield returns 2 to parent
+Parent about to Exit
+Yield returns 1 to child with PID 2
+Child with PID 2 about to Exit
+Yield returns 2 to child with PID 3
+Child with PID 3 about to Exit
+Yield returns 3 to child with PID 4
+Child with PID 4 about to Exit
+Yield returns 4 to child with PID 5
+Child with PID 5 about to Exit
+Yield returns 5 to child with PID 6
+Child with PID 6 about to Exit
+Yield returns 6 to child with PID 7
+Child with PID 7 about to Exit
+Yield returns 7 to child with PID 8
+Child with PID 8 about to Exit
+Yield returns 8 to child with PID 9
+Child with PID 9 about to Exit
+
+System exiting (normal)
+
+*****  Test E diff Results  *****
+
+(no difference)
+
+Test PASSED: outputs match
+
+******  Test F Reference Output  ******
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33
+
+Test of parent Forking, then child Forks, ..., with forward and self Yielding
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent with PID 1 about to self Yield
+Yield returns 1, and Parent with PID 1 now running: self Yield succeeded
+Parent about to Yield to child whose PID is 2
+I am a child, my PID is 2
+Child with PID 2 about to create second child
+Child with PID 2 about to self Yield
+Yield returns 2, and Child with PID 2 now running: self Yield succeeded
+Child with PID 2 about to Yield to child whose PID is 3
+I am a child, my PID is 3
+Child with PID 3 about to create third child
+Child with PID 3 about to self Yield
+Yield returns 3, and Child with PID 3 now running: self Yield succeeded
+Child with PID 3 about to Yield to child whose PID is 4
+I am a child, my PID is 4
+Child with PID 4 about to create fourth child
+Child with PID 4 about to self Yield
+Yield returns 4, and Child with PID 4 now running: self Yield succeeded
+Child with PID 4 about to Yield to child whose PID is 5
+I am a child, my PID is 5
+Child with PID 5 about to create fifth child
+Child with PID 5 about to self Yield
+Yield returns 5, and Child with PID 5 now running: self Yield succeeded
+Child with PID 5 about to Yield to child whose PID is 6
+I am a child, my PID is 6
+Child with PID 6 about to create sixth child
+Child with PID 6 about to self Yield
+Yield returns 6, and Child with PID 6 now running: self Yield succeeded
+Child with PID 6 about to Yield to child whose PID is 7
+I am a child, my PID is 7
+Child with PID 7 about to create seventh child
+Child with PID 7 about to self Yield
+Yield returns 7, and Child with PID 7 now running: self Yield succeeded
+Child with PID 7 about to Yield to child whose PID is 8
+I am a child, my PID is 8
+Child with PID 8 about to create eighth child
+Child with PID 8 about to self Yield
+Yield returns 8, and Child with PID 8 now running: self Yield succeeded
+Child with PID 8 about to Yield to child whose PID is 9
+I am a child, my PID is 9
+Child with PID 9 about to create ninth child
+Child with PID 9 about to self Yield
+Yield returns 9, and Child with PID 9 now running: self Yield succeeded
+Child with PID 9 about to Yield to child whose PID is 10
+I am a child, my PID is 10
+Child with PID 10 about to Exit
+Yield returns 10 to parent
+Parent about to Exit
+Yield returns 1 to child with PID 2
+Child with PID 2 about to Exit
+Yield returns 2 to child with PID 3
+Child with PID 3 about to Exit
+Yield returns 3 to child with PID 4
+Child with PID 4 about to Exit
+Yield returns 4 to child with PID 5
+Child with PID 5 about to Exit
+Yield returns 5 to child with PID 6
+Child with PID 6 about to Exit
+Yield returns 6 to child with PID 7
+Child with PID 7 about to Exit
+Yield returns 7 to child with PID 8
+Child with PID 8 about to Exit
+Yield returns 8 to child with PID 9
+Child with PID 9 about to Exit
+
+System exiting (normal)
+
+*****  TEST F Student Output  *****
+
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009g 12/03/18-00:33 
+
+Test of parent Forking, then child Forks, ..., with forward and self Yielding
+
+I am the parent, my PID is 1
+Parent about to create first child
+Parent created a child process whose PID is 2
+Parent with PID 1 about to self Yield
+Yield returns 1, and Parent with PID 1 now running: self Yield succeeded
+Parent about to Yield to child whose PID is 2
+I am a child, my PID is 2
+Child with PID 2 about to create second child
+Child with PID 2 about to self Yield
+Yield returns 2, and Child with PID 2 now running: self Yield succeeded
+Child with PID 2 about to Yield to child whose PID is 3
+I am a child, my PID is 3
+Child with PID 3 about to create third child
+Child with PID 3 about to self Yield
+Yield returns 3, and Child with PID 3 now running: self Yield succeeded
+Child with PID 3 about to Yield to child whose PID is 4
+I am a child, my PID is 4
+Child with PID 4 about to create fourth child
+Child with PID 4 about to self Yield
+Yield returns 4, and Child with PID 4 now running: self Yield succeeded
+Child with PID 4 about to Yield to child whose PID is 5
+I am a child, my PID is 5
+Child with PID 5 about to create fifth child
+Child with PID 5 about to self Yield
+Yield returns 5, and Child with PID 5 now running: self Yield succeeded
+Child with PID 5 about to Yield to child whose PID is 6
+I am a child, my PID is 6
+Child with PID 6 about to create sixth child
+Child with PID 6 about to self Yield
+Yield returns 6, and Child with PID 6 now running: self Yield succeeded
+Child with PID 6 about to Yield to child whose PID is 7
+I am a child, my PID is 7
+Child with PID 7 about to create seventh child
+Child with PID 7 about to self Yield
+Yield returns 7, and Child with PID 7 now running: self Yield succeeded
+Child with PID 7 about to Yield to child whose PID is 8
+I am a child, my PID is 8
+Child with PID 8 about to create eighth child
+Child with PID 8 about to self Yield
+Yield returns 8, and Child with PID 8 now running: self Yield succeeded
+Child with PID 8 about to Yield to child whose PID is 9
+I am a child, my PID is 9
+Child with PID 9 about to create ninth child
+Child with PID 9 about to self Yield
+Yield returns 9, and Child with PID 9 now running: self Yield succeeded
+Child with PID 9 about to Yield to child whose PID is 10
+I am a child, my PID is 10
+Child with PID 10 about to Exit
+Yield returns 10 to parent
+Parent about to Exit
+Yield returns 1 to child with PID 2
+Child with PID 2 about to Exit
+Yield returns 2 to child with PID 3
+Child with PID 3 about to Exit
+Yield returns 3 to child with PID 4
+Child with PID 4 about to Exit
+Yield returns 4 to child with PID 5
+Child with PID 5 about to Exit
+Yield returns 5 to child with PID 6
+Child with PID 6 about to Exit
+Yield returns 6 to child with PID 7
+Child with PID 7 about to Exit
+Yield returns 7 to child with PID 8
+Child with PID 8 about to Exit
+Yield returns 8 to child with PID 9
+Child with PID 9 about to Exit
+
+System exiting (normal)
+
+*****  Test F diff Results  *****
+
+(no difference)
+
+Test PASSED: outputs match
+
