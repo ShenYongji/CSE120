@@ -1,0 +1,19 @@
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.011 3/01/19-21:45 24326
+
+T2: 0 cubed = 0
+T1: 0 squared = 0
+T0: square = 0, cube = 0
+T2: 1 cubed = 1
+T1: 1 squared = 1
+T0: square = 1, cube = 1
+T2: 2 cubed = 8
+T1: 2 squared = 4
+T0: square = 4, cube = 8
+T2: 3 cubed = 27
+T1: 3 squared = 9
+T0: square = 9, cube = 27
+T2: 4 cubed = 64
+T1: 4 squared = 16
+T0: square = 16, cube = 64
+
+System exiting (normal)

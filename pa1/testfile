@@ -1,0 +1,117 @@
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 12557
+
+
+System exiting (normal)
+
+
+
+
+[cs120wfj@ieng9]:pa1:324$ ./test2            
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 16326
+
+Process 1 about to yield to process 2
+Process 2 about to yield to process 3
+Process 3 about to yield to process 1
+Process 1 yielded to from process 3 (Should be PID 3)
+Process 1 about to yield to process 2
+Process 2 yielded to from process 1 (Should be PID 1)
+Process 1 yielded to from process 2 (Should be PID 2)
+Process 3 yielded to from process 1 (Should be PID 1)
+
+System exiting (normal)
+
+
+[cs120wfj@ieng9]:pa1:326$ ./pa1a
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 17455
+
+I am the parent, my pid is 1
+I just created a child process whose pid is 2
+I am the child, my pid is 2
+
+System exiting (normal)
+
+
+120wfj@ieng9]:pa1:327$ ./pa1b
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 17996
+
+I am the parent, my pid is 1
+I just created a child process whose pid is 2
+I (the parent) just created a second child process whose pid is 3
+I am the first child, my pid is 2
+I am the second child, my pid is 3
+
+System exiting (normal)
+
+[cs120wfj@ieng9]:pa1:328$ ./pa1c
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 18808
+
+I am the parent, my pid is 1
+About to yield to child process whose pid is 2
+I am the first child, my pid is 2
+Process 2 just yielded to me (the parent)
+About to yield to child process whose pid is 3
+I am the second child, my pid is 3
+Process 3 just yielded to me (the parent)
+
+System exiting (normal)
+[cs120wfj@ieng9]:pa1:329$ ./pa1d
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 19018
+
+I am the first child, my pid is 2
+I am the second child, my pid is 3
+I am the parent, my pid is 1
+
+System exiting (normal)
+[cs120wfj@ieng9]:pa1:330$ ./pa1e
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 19089
+
+1 about to fork
+1 just forked 2
+1 about to fork
+1 just forked 3
+1 about to fork
+1 just forked 4
+1 yielding to 4
+4 starting
+4 yielding to 3
+3 starting
+3 yielding to 2
+2 starting
+2 yielding to 1
+1 resumed by 2, yielding to 4
+4 resumed by 1, yielding to 3
+3 resumed by 4, yielding to 2
+2 resumed by 3, yielding to 1
+1 exiting
+2 exiting
+3 exiting
+4 exiting
+
+System exiting (normal)
+[cs120wfj@ieng9]:pa1:331$ ./pa1f
+Umix (User-Mode Unix) CSE120 Instructional OS v. 4.009 12/03/18-00:33 19224
+
+1 about to fork
+1 just forked 2
+1 about to fork
+1 just forked 3
+1 about to fork
+1 just forked 4
+1 yielding to 4
+4 starting
+4 yielding to 3
+3 starting
+3 yielding to 2
+2 starting
+2 yielding to 1
+1 resumed by 2, yielding to 4
+4 resumed by 1, yielding to 3
+3 resumed by 4, yielding to 2
+2 resumed by 3, yielding to 1
+1 exiting
+2 exiting
+3 exiting
+4 exiting
+
+System exiting (normal)
+[cs120wfj@ieng9]:pa1:332$ 
